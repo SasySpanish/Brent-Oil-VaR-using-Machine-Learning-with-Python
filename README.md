@@ -1,52 +1,85 @@
 # Brent Oil Value at Risk (VaR) Analysis
 
-This repository contains the analysis and results of a study on the estimation of Value at Risk (VaR) for Brent crude oil. The analysis compares classical VaR methods with advanced Machine Learning models based on Quantile Regression, aiming to evaluate the risk associated with this highly volatile and globally significant commodity.
+This repository presents a comprehensive analysis of **Value at Risk (VaR)** estimation for **Brent Crude Oil**, comparing **classical econometric approaches** with **modern Machine Learning models** based on Quantile Regression.  
+The goal of this study is to assess the risk of extreme losses in one of the world’s most volatile and economically significant commodities, and to evaluate how data-driven and learning-based models improve VaR estimation accuracy, calibration, and robustness.
+
+The analysis demonstrates that **machine learning techniques—especially boosting-based models such as CatBoost and LightGBM—outperform traditional VaR approaches** by better capturing nonlinear patterns and time-varying volatility in oil price returns.  
+This work provides both a **quantitative comparison** of model performance and a **methodological framework** for integrating AI-driven methods into financial risk management.
+
+---
 
 ## Repository Structure
 
-- `data/` : Contains raw (brent.csv) and processed datasets (brentv.csv) used for the analysis.
-- `notebooks/` : Jupyter notebooks with eda, full analysis, model training implementation and plot generation.
-- `src/` : Python scripts for a full analysis (data processing, modeling, and backtesting)
-- `results/` : Backtesting results and key plots, including:
-  1. Comparison of the four boosting models (Gradient Boosting, XGBoost, LightGBM, CatBoost) against actual losses.
+- `data/` : Contains raw (`brent.csv`) and processed datasets (`brentv.csv`) used for the analysis.
+- `notebooks/` : Jupyter notebooks with exploratory data analysis, full modeling, and visualization.
+- `src/` : Python scripts for complete pipeline execution (data processing, modeling, backtesting).
+- `results/` : Backtesting results and visualizations, including:
+  1. Comparison of boosting models (Gradient Boosting, XGBoost, LightGBM, CatBoost) against actual losses.
   2. Comparison of all Machine Learning models against observed returns.
   3. Comparison of traditional VaR models (including GARCH and Quantile Regression) against actual losses.
 
+---
+
 ## Analysis Summary
 
-The study focused on [Brent crude oil due to its high volatility and central role in global financial and energy markets](Oil_Market.md). The main objective was to analyze the risk of potential losses through VaR estimation and evaluate the performance of various models.
+The study focused on [Brent crude oil due to its high volatility and central role in global financial and energy markets](Oil_Market.md).  
+The main objective was to analyze the risk of potential losses through VaR estimation and evaluate the performance of different modeling approaches.
 
 ### Traditional Models
-- Parametric VaR: Assumes returns follow a normal distribution, calculating VaR based on mean and standard deviation.
-- Historical VaR: Non-parametric method that uses empirical quantiles of past returns.
-- GARCH-based VaR: Incorporates time-varying volatility using GARCH(1,1) models, generating both parametric and historical VaR based on conditional volatility.
-- Quantile Regression VaR: Estimates VaR directly at a specified quantile using a regression framework, adapting better to the empirical distribution of returns.
-- Quantile Regression was found to be the most effective among classical approaches, showing better calibration and higher precision in VaR estimation due to its flexibility in modeling quantiles.
+- **Parametric VaR**: Assumes normally distributed returns, estimating VaR via mean and standard deviation.
+- **Historical VaR**: Non-parametric approach based on empirical quantiles of past returns.
+- **GARCH-based VaR**: Accounts for time-varying volatility using GARCH(1,1) models, generating both parametric and historical VaR.
+- **Quantile Regression VaR**: Estimates VaR directly at a given quantile, adapting to the empirical distribution of returns.
+
+Among these, **Quantile Regression** proved to be the most effective classical model, achieving superior calibration and lower error metrics.
 
 ### Machine Learning Models
-- Machine Learning models were built using a Quantile Regression framework to maintain methodological consistency.
-- Models implemented: Quantile Regression Forest (QRF), Gradient Boosting, XGBoost, LightGBM, CatBoost, and Neural Networks.
-- Boosting-based models (Gradient Boosting, XGBoost, LightGBM, CatBoost) achieved the best overall performance, balancing calibration and accuracy while improving coverage and reducing estimation errors.
-- LightGBM, in particular, provided excellent predictive performance for risk quantiles.
-- Quantile Regression Forest showed lower adaptability and precision compared to boosting models.
-- Neural Networks demonstrated potential but required careful hyperparameter tuning and model optimization to avoid overfitting and convergence issues.
+All ML models were implemented under a Quantile Regression framework for consistency.  
+The following were evaluated: **Quantile Regression Forest (QRF), Gradient Boosting, XGBoost, LightGBM, CatBoost, and Neural Networks**.
 
-### Backtesting Methodologies
-To evaluate the performance of VaR models, the following backtesting techniques were applied:
+- **Boosting-based models** (GB, XGB, LGB, CAT) achieved the best overall balance between calibration and accuracy.
+- **LightGBM** provided the most accurate VaR predictions, achieving the lowest MAE and MSE.
+- **CatBoost** exhibited the most consistent calibration, with violation rates close to the expected 5%.
+- **Neural Networks** performed competitively but required extensive tuning to avoid overfitting.
+- **Quantile Regression Forest** showed good stability but lower adaptability compared to boosting algorithms.
 
-1. Violation Rate / Hit Ratio: Measures the percentage of times the actual loss exceeded the predicted VaR. For a 95% VaR, approximately 5% of observations are expected to exceed the VaR threshold.
-2. Kupiec Proportion of Failures Test: A statistical test that compares the observed number of VaR violations to the expected number, assessing the model's calibration.
-3. Coverage: Calculates the fraction of observations where actual losses were below the predicted VaR, providing a simple measure of model reliability.
-4. Quantile Loss Function: Evaluates the predictive accuracy for quantile regression models, penalizing under- and over-estimation asymmetrically.
-5. MAE and RMSE: Standard error metrics (Mean Absolute Error and Root Mean Squared Error) to assess overall prediction accuracy.
+---
 
-The [backtesting analysis](results) confirmed that:
-- Boosting-based Machine Learning models achieved superior performance in terms of coverage, calibration, and quantile accuracy.
-- Traditional models, while effective, were outperformed by modern Machine Learning approaches in predicting extreme losses.
-- Neural Networks required careful tuning but showed potential for further improvement with more advanced architectures.
+## Backtesting Methodologies
 
-### Key Findings
-- Machine Learning models significantly outperform traditional VaR models in robustness and predictive reliability.
-- Boosting techniques are particularly effective for risk modeling, confirming their value in financial risk management.
-- The analysis highlights the potential for further improvements by integrating additional explanatory variables, using advanced deep learning techniques, and applying models to stress testing or portfolio-level risk evaluation.
+The performance of all VaR models was evaluated using standard backtesting metrics:
+
+1. **Violation Rate / Hit Ratio** – Measures how often actual losses exceed predicted VaR.  
+2. **Kupiec Proportion of Failures Test** – Statistical test for model calibration.  
+3. **Coverage** – Percentage of observations correctly covered by the VaR level.  
+4. **Quantile Loss Function** – Evaluates quantile prediction accuracy.  
+5. **MAE / RMSE** – Assess overall prediction error and model precision.
+
+---
+
+## 🔹 Backtesting Summary
+
+The backtesting phase compared traditional econometric methods with advanced machine learning models for Value at Risk estimation on Brent crude oil returns.  
+Results show that **Quantile Regression** is the best-performing traditional model, providing excellent calibration and low error metrics.  
+Among machine learning techniques, **CatBoost** achieved the most reliable calibration (violations ≈ 5%), while **LightGBM** offered the highest predictive accuracy (lowest MAE and MSE).  
+Overall, **boosting-based models** outperformed classical approaches, demonstrating superior adaptability and precision in capturing nonlinear dependencies and volatility dynamics in the oil market.  
+
+📊 *Detailed results and visualizations are available in the [`/results`](./results) folder.*
+
+---
+
+## Key Findings
+
+- **Machine Learning models significantly outperform traditional VaR models** in both robustness and predictive reliability.  
+- **Boosting techniques (LightGBM, CatBoost, XGBoost)** are particularly effective for risk modeling.  
+- **Quantile Regression** remains a strong benchmark among classical methods.  
+- The study highlights the potential for further improvement through the inclusion of additional explanatory variables, the use of deep learning architectures, and the extension of models to portfolio-level risk analysis and stress testing.
+
+---
+
+## Author
+
+Developed by **[Sasy Spanish](https://github.com/SasySpanish)**  
+🎯 Focused on applying **Machine Learning and Quantitative Methods** to **financial risk and energy market analysis**.
+
 
