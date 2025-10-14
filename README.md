@@ -13,11 +13,7 @@ This work provides both a **quantitative comparison** of model performance and a
 - `data/` : Contains raw (`brent.csv`) and processed datasets (`brentv.csv`) used for the analysis.
 - `notebooks/` : Jupyter notebooks with exploratory data analysis, full modeling, and visualization.
 - `src/` : Python scripts for complete pipeline execution (data processing, modeling, backtesting).
-- `results/` : Backtesting results and visualizations, including:
-  1. Comparison of boosting models (Gradient Boosting, XGBoost, LightGBM, CatBoost) against actual losses.
-  2. Comparison of all Machine Learning models against observed returns.
-  3. Comparison of traditional VaR models (including GARCH and Quantile Regression) against actual losses.
-
+- `results/` : Backtesting results and visualizations
 ---
 
 ## Analysis Summary
@@ -57,14 +53,14 @@ The performance of all VaR models was evaluated using standard backtesting metri
 
 ---
 
-## 🔹 Backtesting Summary
+## Backtesting Summary
 
 The backtesting phase compared traditional econometric methods with advanced machine learning models for Value at Risk estimation on Brent crude oil returns.  
-Results show that **Quantile Regression** is the best-performing traditional model, providing excellent calibration and low error metrics.  
+[Results](./results) show that **Quantile Regression** is the best-performing traditional model, providing excellent calibration and low error metrics.  
 Among machine learning techniques, **CatBoost** achieved the most reliable calibration (violations ≈ 5%), while **LightGBM** offered the highest predictive accuracy (lowest MAE and MSE).  
 Overall, **boosting-based models** outperformed classical approaches, demonstrating superior adaptability and precision in capturing nonlinear dependencies and volatility dynamics in the oil market.  
 
-📊 *Detailed results and visualizations are available in the [`/results`](./results) folder.*
+*Detailed results and visualizations are available in the [`/results`](./results) folder.*
 
 ---
 
@@ -77,9 +73,8 @@ Overall, **boosting-based models** outperformed classical approaches, demonstrat
 
 ---
 
-## Author
 
 Developed by **[Sasy Spanish](https://github.com/SasySpanish)**  
-🎯 Focused on applying **Machine Learning and Quantitative Methods** to **financial risk and energy market analysis**.
+
 
 
