@@ -35,6 +35,8 @@ Among these, **Quantile Regression** proved to be the most effective classical m
 All ML models were implemented under a Quantile Regression framework for consistency.  
 The following were evaluated: **Quantile Regression Forest (QRF), Gradient Boosting, XGBoost, LightGBM, CatBoost, and Neural Networks**.
 
+![A](results/images/all_ml.png)
+
 - **Boosting-based models** (GB, XGB, LGB, CAT) achieved the best overall balance between calibration and accuracy.
 - **LightGBM** provided the most accurate VaR predictions, achieving the lowest MAE and MSE.
 - **CatBoost** exhibited the most consistent calibration, with violation rates close to the expected 5%.
@@ -60,6 +62,9 @@ The performance of all VaR models was evaluated using standard backtesting metri
 The backtesting phase compared traditional econometric methods with advanced machine learning models for Value at Risk estimation on Brent crude oil returns.  
 [Results](./results) show that **Quantile Regression** is the best-performing traditional model, providing excellent calibration and low error metrics.  
 Among machine learning techniques, **CatBoost** achieved the most reliable calibration (violations ≈ 5%), while **LightGBM** offered the highest predictive accuracy (lowest MAE and MSE).  
+
+![A](results/images/all_boost_loss.png)
+
 Overall, **boosting-based models** outperformed classical approaches, demonstrating superior adaptability and precision in capturing nonlinear dependencies and volatility dynamics in the oil market.  
 
 *Detailed results and visualizations are available in the [`/results`](./results) folder.*
