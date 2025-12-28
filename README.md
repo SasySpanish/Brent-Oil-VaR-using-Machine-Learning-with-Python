@@ -60,8 +60,9 @@ The performance of all VaR models was evaluated using standard backtesting metri
 ## Backtesting Summary
 
 The backtesting phase compared traditional econometric methods with advanced machine learning models for Value at Risk estimation on Brent crude oil returns.  
-[Results](./results) show that **Quantile Regression** is the best-performing traditional model, providing excellent calibration and low error metrics.  
+[Results](./results) show that **Quantile Regression** is the best-performing traditional model, providing excellent calibration and low error metrics. 
 ![A](results/images/ml_backtest.PNG)
+
 Among machine learning techniques, **CatBoost** achieved the most reliable calibration (violations ≈ 5%), while **LightGBM** offered the highest predictive accuracy (lowest MAE and MSE).  
 
 ![A](results/images/var_backtest.PNG)
