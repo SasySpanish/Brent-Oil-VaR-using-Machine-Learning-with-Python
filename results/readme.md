@@ -63,10 +63,10 @@ Overall, **machine learning methods—particularly CatBoost and LightGBM—demon
 ## Visual Overview
 
 - Traditional Models Backtesting:  
-  ![Traditional VaR](images/var_backtest.png)
+  ![Traditional VaR](images/var_backtest.PNG)
 
 - Machine Learning Models Backtesting:  
-  ![ML VaR](images/ml_backtest.png)
+  ![ML VaR](images/ml_backtest.PNG)
 
 - Boosting Models Comparison (Losses):  
   ![Boosting Comparison](images/all_boost_loss.png)
