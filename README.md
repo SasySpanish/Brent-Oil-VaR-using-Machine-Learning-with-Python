@@ -84,7 +84,7 @@ Overall, **boosting-based models** outperformed classical approaches, demonstrat
 ---
 
 
-Developed by **[Sasy Spanish](https://github.com/SasySpanish)**  
+Developed by **[Salvatore Spagnuolo](https://github.com/SasySpanish)**  
 
 
 
