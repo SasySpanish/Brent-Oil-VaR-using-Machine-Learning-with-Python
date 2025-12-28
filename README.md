@@ -27,6 +27,8 @@ The main objective was to analyze the risk of potential losses through VaR estim
 - **GARCH-based VaR**: Accounts for time-varying volatility using GARCH(1,1) models, generating both parametric and historical VaR.
 - **Quantile Regression VaR**: Estimates VaR directly at a given quantile, adapting to the empirical distribution of returns.
 
+![AAA](results/images/all_var_loss.png)
+
 Among these, **Quantile Regression** proved to be the most effective classical model, achieving superior calibration and lower error metrics.
 
 ### Machine Learning Models
