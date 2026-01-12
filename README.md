@@ -18,7 +18,7 @@ This work provides both a **quantitative comparison** of model performance and a
 
 ## Analysis Summary
 
-The study focused on [Brent crude oil due to its high volatility and central role in global financial and energy markets](Oil_Market.md).  
+The study focused on [Brent crude oil due to its high volatility and central role in global financial and energy markets](OIL.md).  
 The main objective was to analyze the risk of potential losses through VaR estimation and evaluate the performance of different modeling approaches.
 
 ### Traditional Models
